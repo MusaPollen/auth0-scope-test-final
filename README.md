@@ -1,3 +1,5 @@
+### slight updated - recreated this repo and after install did > (created .env) & (npm i) for initial dependency setup. after that successfully worked as expected.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
