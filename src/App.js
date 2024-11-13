@@ -2,7 +2,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 import logo from './logo.svg';
 import './App.css';
 import LoginButton from './login';
@@ -11,33 +10,19 @@ import Profile from './profile';
 
 function App() {
   //doha
-
-  // ((((((((((((((((((answer of my queston experiment; if we wanted to catch the first access token that was seen on network tab
-  //import { useState } from 'react'; add top
-  // const [accessToken, setAccessToken] = useState()
-  // if (window.location.href.includes("/code=kjhdfihsdf?accessToken=lakjsdf&idToken=asdf")) {
-  //   const url = new URL(window.location.href)
-  //   setAccessToken(url.searchParams.accessToken ?? '')
-  //   localStorage.setItem("accessToken", accessToken)
-  //   localStorage.getItem("accessToken")
-  // })))))))))))))))))))))))
-
   //first e ekbar load hobe page ta. log in er pore abar load hobe.
   //every load ei nicher part ta run hobe
-
   const { getAccessTokenSilently, isAuthenticated } = useAuth0();  //using hook to get ready to receive token
   const [token, setToken] = useState("");
 
   const getToken = async () => {
     if (isAuthenticated) {
       const token = await getAccessTokenSilently();
-      console.log("token", token);
+      // console.log("token", token);//if token is needed to be shown in console
       setToken(token)
     }
   }
   getToken()
-
-  //doha
 
   //MINE TESTING with axios XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   const [response1, setResponse1] = useState('');
@@ -48,14 +33,9 @@ function App() {
   // Function to send GET request and update response
   const handleButtonClick1 = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get('http://localhost:5000/api/');
       setResponse1(res.data);  // Store the response data in state
     } catch (error) {
-      // setResponse('Error fetching data');
       setResponse1(`Error: ${error.message}`);  // Show the error message from the error object
       console.error('Error details:', error);
     }
@@ -63,14 +43,9 @@ function App() {
 
   const handleButtonClick2 = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/test/', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setResponse2(res.data);  // Store the response data in state
+      const res = await axios.get('http://localhost:5000/api/test/');
+      setResponse2(res.data);
     } catch (error) {
-      // setResponse('Error fetching data');
       setResponse2(`Error: ${error.message}`);  // Show the error message from the error object
       console.error('Error details:', error);
     }
@@ -85,7 +60,6 @@ function App() {
       });
       setResponse3(res.data);  // Store the response data in state
     } catch (error) {
-      // setResponse('Error fetching data');
       setResponse3(`Error: ${error.message}`);  // Show the error message from the error object
       console.error('Error details:', error);
     }
@@ -98,7 +72,6 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
-
       setResponse4(res.data);  // Store the response data in state
     } catch (error) {
       // setResponse('Error fetching data');
@@ -200,3 +173,14 @@ function App() {
 }
 
 export default App;
+
+
+// ((((((((((((((((((answer of my queston experiment; if we wanted to catch the first access token that was seen on network tab
+//import { useState } from 'react'; add top
+// const [accessToken, setAccessToken] = useState()
+// if (window.location.href.includes("/code=kjhdfihsdf?accessToken=lakjsdf&idToken=asdf")) {
+//   const url = new URL(window.location.href)
+//   setAccessToken(url.searchParams.accessToken ?? '')
+//   localStorage.setItem("accessToken", accessToken)
+//   localStorage.getItem("accessToken")
+// })))))))))))))))))))))))
