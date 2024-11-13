@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Style custom personal */
+
+/* Style for the table */
+.mytable {
+  width: 50%;               /* Keep the table width auto to fit content */
+  border-collapse: collapse; /* Collapse table borders into one line */
+  table-layout: fixed;       /* Fix the table layout (to prevent overflow) */
+  margin-left: 25%;            /* Keep the table aligned to the left */
+}
+
+/* Style for the table header (left align) */
+.mytable th {
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;          /* Align text to the left */
+  border: 2px solid #000;    /* Border for table header cells */
+  word-wrap: break-word;     /* Allow long words to break and wrap into new lines */
+}
+
+/* Style for the table data cells (left align) */
+.mytable td {
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;          /* Align text to the left */
+  border: 2px solid #000;    /* Border for table data cells */
+  word-wrap: break-word;     /* Allow long words to break and wrap into new lines */
+  overflow: hidden;          /* Ensure content stays inside the cell */
+}
+
